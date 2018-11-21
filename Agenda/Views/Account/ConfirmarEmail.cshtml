@@ -1,0 +1,28 @@
+﻿@model Int32
+
+@{
+    Layout = "~/Views/Shared/_AccountLayout.cshtml";
+    ViewBag.Title = "Confirmar E-mail";
+}
+
+<div class="account-msg">Quase pronto! Realize o Login para finalizar o procedimento.</div>
+
+    <div id="login-form">
+        @using (Html.BeginForm("ConfirmarEmail", "Account", FormMethod.Post))
+        {
+            @Html.ValidationSummary(true)
+            @Html.Hidden("userId", Model)
+
+            <p class="account-p">E-mail</p>
+            <p class="account-input">@Html.TextBox("email", null, new { @class = "account-input-editor" })</p>
+
+            <div style="position:relative; bottom:15px;">
+
+                <p class="account-p">Senha</p>
+                <p class="account-input">@Html.TextBox("passWord", null, new { @type = "password", @class = "account-input-editor" })</p>
+
+            </div>
+
+            <p style="text-align:center"><input class="account-button" type="submit" value="Entrar" /></p>
+        }
+    </div>

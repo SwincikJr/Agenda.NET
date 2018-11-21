@@ -1,0 +1,35 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    <link href="~/Content/Site.css" rel="stylesheet" />
+    <script type="text/javascript" src="~/Scripts/jquery-1.8.2.js"></script>
+</head>
+<body style="margin:0">
+
+    <div class="content" style="float:right; width:85%; overflow:auto;">
+        @RenderBody()
+    </div>
+
+    <div class="sidebar" style="background-color:#000080; float:left; min-width:165px; max-width:12%; color:white; height:100%; position:fixed; top:0; z-index: 5; padding-top:2%; overflow:auto">
+        @if (Session["Image"] == null)
+        {
+            <img class="user-image" src="~/Content/app-ic.jpg" />
+        }
+        else
+        {
+            <img class="user-image" src="@Url.Action("GetImage", "Account")" />
+        }
+
+        <div style="font-size:1.5em; font-weight:bold; color:white; text-align:center; width:80%; margin-left:11%; margin-top:10px">@Session["Usuario"]</div>
+        <div style="text-align:center; position:relative; top:25px; height:50px; background-color: @ViewBag.Color"><a id="link-a" class="menu-options" style="position:relative; top: 12.5px" href="@Url.Action("Index", "Home")" onmouseover="document.getElementById('link-a').parentElement.style.backgroundColor = 'white'" onmouseout="document.getElementById('link-a').parentElement.style.backgroundColor = '#000080'"> Home </a></div>
+        <div style="text-align:center; position:relative; top:25px; height:50px;"><a id="link-b" class="menu-options" style="position:relative; top: 12.5px" href="@Url.Action("Novo", "Evento")" onmouseover="document.getElementById('link-b').parentElement.style.backgroundColor = 'white'" onmouseout="    document.getElementById('link-b').parentElement.style.backgroundColor = '#000080'"> Novo </a></div>
+        <div style="text-align:center; position:relative; top:25px; height:50px;"><a id="link-c" class="menu-options" style="position:relative; top: 12.5px" href="@Url.Action("Consultar", "Evento", new { beginDate = DateTime.Now.Date.ToString("yyyy-MM-dd") })" onmouseover="document.getElementById('link-c').parentElement.style.backgroundColor = 'white'" onmouseout="    document.getElementById('link-c').parentElement.style.backgroundColor = '#000080'"> Consultar </a></div>
+        <div style="text-align:center; position:relative; top:25px; height:50px;"><a id="link-d" class="menu-options" style="position:relative; top: 12.5px" href="@Url.Action("Config", "Home")" onmouseover="document.getElementById('link-d').parentElement.style.backgroundColor = 'white'" onmouseout="    document.getElementById('link-d').parentElement.style.backgroundColor = '#000080'"> Configurações </a></div>
+        <div style="text-align:center; position:relative; top:25px; height:50px;"><a id="link-e" class="menu-options" style="position:relative; top: 12.5px" href="@Url.Action("Sair", "Home")" onmouseover="document.getElementById('link-e').parentElement.style.backgroundColor = 'white'" onmouseout="    document.getElementById('link-e').parentElement.style.backgroundColor = '#000080'"> Log out </a></div>
+    </div>
+  
+</body>
+</html>

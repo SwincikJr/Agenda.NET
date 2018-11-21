@@ -1,0 +1,26 @@
+﻿@using Agenda.Models.Concrete
+@model AlterarSenhaModelView
+
+@{
+    ViewBag.Title = "AlterarSenha";
+}
+
+<h1 class="pag-titulo">Alterar Senha</h1>
+
+<div class="container-editar" style="width:29%">
+    @using (Html.BeginForm())
+    {
+        @Html.ValidationSummary()
+        <p style="width:100%">Senha atual @Html.TextBoxFor(m => m.Password, new { @class = "edit-evento", @type = "password", @style = "width:100%", @tabindex = "1" })</p>
+        <p style ="width:100%">Nova senha @Html.TextBoxFor(m => m.NewPassword, new { @class = "edit-evento", @type = "password", @style = "width:100%", @tabindex = "2" })</p>
+        <p style="width:100%">Confirmar nova senha @Html.TextBoxFor(m => m.ConfirmPassword, new { @class = "edit-evento", @type = "password", @style = "width:100%", @tabindex = "3" })</p>
+        <p style="width:100%">
+            <div style=" border: 1px solid black; width: 70px; text-align:center; margin:5px; height:21px; float:right; cursor:pointer">
+                @Html.RouteLink("Cancelar", new { controller = "Home", action = "Config" }, new { @class = "editarLink", @style = "font-weight:normal; font-size:0.9em;position:relative; bottom:1px;", @tabindex = "5" }) 
+            </div>
+            <div style=" border: 1px solid black; width: 70px; text-align:center; margin:5px; height:21px; float:right; cursor:pointer">
+                <input style="background:none; border:none; font-size:0.9em;  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; position:relative; bottom:1px; cursor:pointer" type="submit" value="Alterar" tabindex="4"/>
+            </div>
+        </p>
+    }
+</div>

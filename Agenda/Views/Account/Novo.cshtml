@@ -1,0 +1,38 @@
+﻿@model Agenda.Models.Concrete.Usuario
+
+@{
+    Layout = "~/Views/Shared/_AccountLayout.cshtml";
+    ViewBag.Title = "Novo Usuário";
+}
+
+<div id="login-form">
+    @using (Html.BeginForm("Novo", "Account", FormMethod.Post))
+    {
+        @Html.ValidationSummary()
+        @Html.Hidden("userId", Model.UserID)
+
+        <div>
+            <p class="account-p">Endereço de E-mail</p>
+            <p class="account-input">@Html.TextBox("email", null, new { @class = "account-input-editor" })</p>
+        </div>
+
+        <div style="position:relative; bottom:15px;">
+            <p class="account-p">Nome de usuário</p>
+            <p class="account-input">@Html.TextBox("userName", null, new { @class = "account-input-editor" })</p>
+        </div>
+
+        <div style="position:relative; bottom:30px;">
+            <p class="account-p">Senha</p>
+            <p class="account-input">@Html.TextBox("passWord", null, new { @type = "password", @class = "account-input-editor" })</p>
+        </div>    
+         
+        <div style="position:relative; bottom:45px;">
+            <p class="account-p">Confirmar Senha</p>
+            <p class="account-input">@Html.TextBox("passWordConfirm", null, new { @type = "password", @class = "account-input-editor" })</p>
+        </div>
+
+        <p style="text-align:center; position:relative; bottom:15px"><input class="account-button" type="submit" value="Cadastrar" /></p>
+
+
+    }
+</div>

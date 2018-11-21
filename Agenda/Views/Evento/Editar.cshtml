@@ -1,0 +1,50 @@
+﻿@model Agenda.Models.Concrete.Evento
+
+@{
+    ViewBag.Title = "Editar Evento";
+}
+    
+<h1 class="pag-titulo">Editar Evento</h1>
+
+<div class="container-editar">
+
+    @using (Html.BeginForm("Editar", "Evento", FormMethod.Post, new { @onsubmit = "confirma()" }))
+    {
+        @Html.ValidationSummary()
+        @Html.Hidden("eventoId", Model.EventoID)
+        @Html.Hidden("userId", Model.UserID)
+
+        if (Session["CurrentPage"].ToString() == "Index")
+        {
+            <div class="container-options" style="font-size:0.85em">@Html.ActionLink("Cancelar", "Index", "Home", null, new { Class = "editarLink" })</div>
+        }
+        else
+        {
+            <div class="container-options" style="font-size:0.85em">@Html.ActionLink("Cancelar", "Consultar", "Evento", new { beginDate = Session["beginDate"] }, new { Class = "editarLink", @tabindex = "5" })</div>
+        }
+        
+        <div class="container-options"><input class="novo-editar-button" type="submit" value="Confirmar" tabindex="4"/></div>
+
+        <p style="float:left">Dia: @Html.TextBoxFor(e => e.dataHora.Date, new { @type = "date", Value = Model.dataHora.Date.ToString("yyyy-MM-dd"), @class = "edit-evento", Name = "beginDate", @tabindex = "1" })</p>
+        <p style="float:left; padding-left:25px">Hora: @Html.TextBoxFor(e => e.dataHora.TimeOfDay, new { @type = "time", Value = Model.dataHora.ToShortTimeString(), @class = "edit-evento", Name = "beginTime", @tabindex = "2" })</p>
+        <p style="clear:both">Descrição: </p>
+        @Html.TextArea("descricao", Model.Descricao, new { @id = "Evento_Descricao", @tabindex = "3" })
+    }
+
+    
+</div>
+
+<script type="text/javascript">
+
+    function confirma() {
+        var con = confirm("Confirma a modificação do evento?");
+        if (con) {
+            return true;
+        }
+        else {
+            alert("Ação cancelada.");
+            event.preventDefault();
+        }
+    }
+
+</script>

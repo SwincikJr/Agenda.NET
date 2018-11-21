@@ -1,0 +1,43 @@
+﻿@model Agenda.Models.Concrete.Usuario
+
+@{
+    ViewBag.Title = "AlterarFoto";
+}
+
+<h1 class="pag-titulo">Alterar Foto</h1>
+
+
+
+<div class="container-editar" style="position:relative; bottom:20px">
+    @using (Html.BeginForm("AlterarFoto", "Home", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+        <p>Imagem atual: </p>
+        
+        if (Model.ImageData == null)
+        {
+            <img id="image-atual" src="~/Content/app-ic.jpg" /> 
+        }
+        else
+        { 
+            <img id="image-atual" src="@Url.Action("GetImage", "Account")" />
+        }
+                
+        <p>Carregar nova foto:</p>
+        <input id="files" type="file" name="image" onchange="PreviewImage(event)" style="position:relative; bottom:15px"/>
+            
+        <p><input type="submit" class="alterar-foto-button" value="Salvar" /></p>
+     }
+</div>
+
+
+<script>
+    function PreviewImage(event) {
+        var reader = new FileReader();
+        var input = event.target;
+        reader.onload = function () {
+            var dataUrl = reader.result;
+            document.getElementById("image-atual").setAttribute("src", dataUrl);
+        }
+        reader.readAsDataURL(input.files[0]);
+    }
+</script>

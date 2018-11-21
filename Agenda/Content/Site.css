@@ -1,0 +1,222 @@
+﻿html{
+    height:100%;
+    width:100%
+}
+
+body {
+    font-size: .85em;
+    font-family: "Segoe UI", Verdana, Helvetica, Sans-Serif;
+    color: #232323;
+    background-color: #fff;
+    height:100%;
+    width:100%;
+}
+
+header, footer, nav, section {
+    display: block;
+}
+
+
+/* Styles for basic forms
+-----------------------------------------------------------*/
+fieldset {
+    border: 1px solid #ddd;
+    padding: 0 1.4em 1.4em 1.4em;
+    margin: 0 0 1.5em 0;
+}
+
+legend {
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
+textarea {
+    min-height: 75px;
+}
+
+.editor-label {
+    margin: 1em 0 0 0;
+}
+
+.editor-field {
+    margin: 0.5em 0 0 0;
+}
+
+
+/* Styles for validation helpers
+-----------------------------------------------------------*/
+.field-validation-error {
+    color: #f00;
+}
+
+.field-validation-valid {
+    display: none;
+}
+
+.input-validation-error {
+    border: 1px solid #f00;
+    background-color: #fee;
+}
+
+.validation-summary-errors {
+    font-weight: bold;
+    color: #f00;
+}
+
+.validation-summary-valid {
+    display: none;
+}
+
+.editarLink, .editarLink:visited, .editarLink:hover{
+    padding: 5px;
+    text-decoration:none;
+    color: black;
+    font-size:1.1em;
+}
+
+.sidebar-option{
+    padding-left:10px;
+    padding-top:10px;
+    padding-bottom:10px;
+    border-top: 0.5px solid;
+    text-align:center;
+    font-size:1em; 
+}
+
+.menu-options:link, .menu-options:visited {
+    color: white;
+    font-weight:bold;
+    font-size:1.2em;
+    text-decoration: none;
+}
+
+.menu-options:hover {
+    color:black;
+    font-weight:bold;
+    font-size:1.3em;
+    text-decoration:none
+}
+
+.user-image{
+    border-radius:55px;
+    width:110px;
+    height:110px;
+    position:relative;
+    left:15%;
+}
+
+::-webkit-scrollbar{
+    width:7px;
+    background-color: #BCD2EE;
+}
+
+.edit-evento, .text-box, #Evento_Descricao {
+    border-radius:5px;
+    padding-left:5px;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+#Evento_Descricao{
+    min-width:29%;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #6495ED; 
+}
+
+.pag-titulo {
+    text-align: center; 
+    border-bottom: 2px solid #000080; 
+    padding-bottom:10px
+}
+
+.container-editar{
+    padding: 10px; 
+    font-size:1.2em; 
+    font-weight:bold
+}
+
+.container-options{
+    border: 1px solid black; 
+    width: 85px; 
+    text-align:center; 
+    margin:5px; 
+    font-size:0.9em; 
+    font-weight:normal; 
+    float:right;
+}
+
+.container-options#consult {
+    float: left;
+    position: relative;
+    bottom: 3px
+}
+
+.login-form{
+    width:50%;
+    height:50%;
+    position:relative;
+    top:25%;
+    left:25%
+}
+
+.config-link, .config-link:link, .config-link:visited {
+    text-decoration: none;
+    color: black;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size:1.4em;
+}
+
+.config-link:hover {
+    font-weight:bold;
+}
+
+.temp-data {
+    font-weight: bold;
+    color: #000080;
+    text-align: center;
+    font-size: 1.2em;
+}
+
+.novo-editar-button {
+    background: none;
+    border: none;
+    font-size: 1em;
+    cursor: pointer;
+}
+
+#consulta-div {
+    border-bottom: 2px solid #000080;
+    padding-bottom: 40px;
+    padding-left: 20px;
+}
+
+.eventos-list {
+    border-bottom: 2px dotted black;
+    padding: 30px;
+}
+
+.eventos-list-buttons {
+    border: 1px solid black;
+    width: 60px;
+    text-align: center;
+    margin: 5px;
+    height: 20px;
+    cursor:pointer;
+}
+
+.alterar-foto-button {
+    border: 1px solid black;
+    background:none;
+    cursor:pointer;
+    display:inline;
+    width:200px;
+    height:25px;
+    font-weight:bold;
+}
+
+#image-atual {
+    width: 200px;
+    height: 200px;
+    border-radius: 100px
+}

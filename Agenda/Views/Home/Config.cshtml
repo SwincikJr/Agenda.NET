@@ -1,0 +1,22 @@
+﻿@{
+    ViewBag.Title = "Config";
+}
+
+<h1 class="pag-titulo">Configurações da Conta</h1>
+
+<div style="height:15px">
+    @if (TempData["InfoAlterada"] != null)
+    {
+        <p class="temp-data">@TempData["InfoAlterada"]</p>
+    }
+</div>
+
+<p>@Html.RouteLink("Alterar foto", new { controller = "Home", action = "AlterarFoto" }, new { @class = "config-link" })</p>
+<p>@Html.RouteLink("Alterar senha", new { controller = "Home", action = "AlterarSenha" }, new { @class = "config-link" })</p>
+<p>@Html.RouteLink("Alterar nome de usuário", new { controller = "Home", action = "AlterarNome"}, new { @class = "config-link" })</p>
+
+<script type="text/javascript">
+
+    $('.temp-data').fadeToggle(3000);
+
+</script>

@@ -1,0 +1,17 @@
+﻿@{
+    Layout = "~/Views/Shared/_AccountLayout.cshtml";
+    ViewBag.Title = "Recuperar Senha";
+}
+
+    <div id="login-form">
+        @using (Html.BeginForm("RecuperarSenha", "Account", FormMethod.Post))
+        {
+            @Html.ValidationSummary(true)
+            <p class="account-p">Endereço de e-mail cadastrado</p> 
+            <p class="account-input">@Html.TextBox("email", null, new { @class = "account-input-editor" })</p>
+            
+            <div style="text-align:center">
+                <input id="account-button-exc"  class="account-button" type="submit" value="Recuperar" />
+            </div>
+        }
+    </div>

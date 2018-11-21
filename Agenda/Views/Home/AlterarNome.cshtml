@@ -1,0 +1,20 @@
+﻿@{
+    ViewBag.Title = "AlterarNome";
+}
+
+<h1 class="pag-titulo">Alterar Nome de Usuário</h1>
+
+<div class="container-editar" style="width:29%">
+    @using (Html.BeginForm())
+    {
+        @Html.ValidationSummary()
+        <p style="width:100%">Novo nome: @Html.TextBox("novoNome", null, new { @class = "edit-evento", @style = "width:100%", @tabindex = "1" })</p>
+
+        <div style=" border: 1px solid black; width: 70px; text-align:center; margin:5px; height:21px; float:right; cursor:pointer">
+            @Html.RouteLink("Cancelar", new { controller = "Home", action = "Config" }, new { @class = "editarLink", @style = "font-weight:normal; font-size:0.9em;position:relative; bottom:1px", @tabindex = "3" })
+        </div>
+        <div style=" border: 1px solid black; width: 70px; text-align:center; margin:5px; height:21px; float:right; cursor:pointer">
+            <input style="background:none; border:none; font-size:0.9em;  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; position:relative; bottom:1px; cursor:pointer" type="submit" value="Alterar" tabindex = "2" />
+        </div>
+    }
+</div>

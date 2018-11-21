@@ -1,0 +1,64 @@
+﻿@using Agenda.Models.Concrete
+@model IEnumerable<Evento>
+
+@{
+    ViewBag.Title = "Consultar";
+}
+
+<h1 class="pag-titulo">Consultar</h1>
+
+<div id="consulta-div">
+    @using (Html.BeginForm("Post", "Evento", FormMethod.Post))
+    {
+        @Html.TextBox("beginDate", DateTime.Now.Date.ToString("yyyy-MM-dd"), new { @type = "date", @class = "edit-evento", @style="float:left" })
+        <div id="consult" class="container-options"><input class="novo-editar-button" type="submit" value="Consultar" /></div>
+    }
+</div>
+
+<div style="height:15px">
+    @if (TempData["EventoModificado"] != null)
+    {
+        <p class="temp-data">@TempData["EventoModificado"]</p>
+    }
+</div>
+
+@if (Model.Count() != 0) { 
+
+    foreach (Evento e in Model)
+    {
+        <div class="eventos-list">
+                <div style="float: right">
+                    <div class="eventos-list-buttons" style="float:left">@Html.ActionLink("Editar", "Editar", "Evento", new { eventoId = e.EventoID }, new { @class = "editarLink" })</div>
+                    <div class="eventos-list-buttons" style="float:right">
+                        @using (Html.BeginForm("Deletar", "Evento", FormMethod.Post, new { @onsubmit = "confirma()" }))
+                        { 
+                            @Html.Hidden("eventoId", e.EventoID)
+                            <input class="novo-editar-button" type="submit" value="Deletar" /> 
+                        }
+                    </div>
+                </div>
+                <h2>@e.dataHora.CorrigeHora():@e.dataHora.CorrigeMinuto()</h2>
+                <p> @e.Descricao </p>
+        </div>
+    }
+
+}
+else
+{
+    <h2>Não há eventos para a data solicitada.</h2>
+}
+
+<script type="text/javascript">
+
+    function confirma() {
+        var con = confirm("Tem certeza que deseja deletar esse evento?");
+        if (con) {
+            return true;
+        }
+        else {
+            alert("Ação cancelada.");
+            event.preventDefault();
+        }
+    }
+
+</script>
